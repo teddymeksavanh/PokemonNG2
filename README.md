@@ -18,7 +18,7 @@ Meteor run
 
 ## External Api
 
-[PokeApiGithub](https://github.com/PokeAPI/pokeapi)
+[PokeApiGithub](https://github.com/PokeAPI/pokeapi),
 [PokeApi.co](https://pokeapi.co/)
 
 ## Todo (French version)

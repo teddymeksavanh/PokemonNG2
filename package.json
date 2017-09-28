@@ -1,0 +1,23 @@
+{
+  "name": "pokemon",
+  "version": "1.0.0",
+  "description": "PokemonNG2 is a project using Angular2.",
+  "main": "index.js",
+  "dependencies": {
+    "npm": "^5.4.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/teddymeksavanh/PokemonNG2.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/teddymeksavanh/PokemonNG2/issues"
+  },
+  "homepage": "https://github.com/teddymeksavanh/PokemonNG2#readme"
+}
