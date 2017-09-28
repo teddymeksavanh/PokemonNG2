@@ -2,11 +2,11 @@
 
 PokemonNG2 is a project using Angular2.
 
-#### Motivation
+## Motivation
 
 It's for a company test, but first of all, It will help me get use to Angular2 and play with it.
 
-#### Install
+## Install
 
 Install Meteor from https://www.meteor.com/install . Meteor is a JS Frameworks.
 
@@ -16,12 +16,12 @@ After pulling this project, launch from console :
 Meteor run
 ```
 
-### External Api
+## External Api
 
-- [PokeApiGithub](https://github.com/PokeAPI/pokeapi)
-- [PokeApi.co](https://pokeapi.co/)
+[PokeApiGithub](https://github.com/PokeAPI/pokeapi)
+[PokeApi.co](https://pokeapi.co/)
 
-### Todo (French version)
+## Todo (French version)
 
 ##### Fonctionnalitées
 
