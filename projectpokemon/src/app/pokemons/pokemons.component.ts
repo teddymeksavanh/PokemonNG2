@@ -10,9 +10,8 @@ import { PokemonService } from '../pokemon.service';
 })
 export class PokemonsComponent implements OnInit {
 	pokemons: Pokemon[];
-	selectedPokemon: Pokemon;
+	searchedPokemons: Pokemon[] = [];
 	error: any;
-	showNgFor = false;
 
   constructor(
   	private pokemonService: PokemonService
@@ -25,7 +24,18 @@ export class PokemonsComponent implements OnInit {
 			.catch(error => this.error = error);
 	} 
 
-	gotoDetail(pokemon: Pokemon): void {
+	searchByType(value: string): void {
+		let searchedPokemons = []
+		this.pokemons.map((pokemon) => {
+			pokemon.types.map(typesWrapper => {
+				if( typesWrapper.type.name === value ) {
+					if(searchedPokemons.indexOf(pokemon) === -1) {
+						searchedPokemons.push(pokemon)
+					}
+				}
+			})
+		})
+		this.searchedPokemons = searchedPokemons
 	}
 
   ngOnInit() {
