@@ -2,19 +2,24 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { ModalModule } from 'ngx-modal';
 
 import { AppComponent } from './app.component';
+import { PokemonService } from './pokemon.service';
+import { PokemonsComponent } from './pokemons/pokemons.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    PokemonsComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    ModalModule
   ],
-  providers: [],
+  providers: [PokemonService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
