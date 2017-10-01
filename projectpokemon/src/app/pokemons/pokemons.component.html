@@ -1,12 +1,35 @@
 <ul class="pokemons">
   <li *ngFor="let pokemon of pokemons">
+  	<span class="pokemon-element">
+  		{{pokemon.name}}
+  	</span>
 
-    <button (click)="myModal.open()">Details</button>
-    <span class="pokemon-element">
-        {{pokemon.id}}
-        {{pokemon.name}}
-    </span>
-    <button (click)="goToDetails(pokemon)">View Details</button>
+		<div class="row">
+	    <button (click)="myModal.open()">View details</button>
+	    <modal #myModal>
+	        <modal-header>
+	            <h1>Pokemon Card</h1>
+	        </modal-header>
+	        <modal-content>
+	            {{pokemon.id}}
+	            {{pokemon.name}}	
+	            <ul>
+	            	<li *ngFor="let abilityWrapper of pokemon.abilities">
+	            		{{abilityWrapper.ability.name}}
+	            	</li>
+	            </ul>
+	            <img src="{{pokemon.sprites.front_default}}"/>
+              <ul>
+	            	<li *ngFor="let typesWrapper of pokemon.types">
+	            		{{typesWrapper.type.name}}
+	            	</li>
+	            </ul>
+	        </modal-content>
+	        <modal-footer>
+	            <button class="btn btn-primary" (click)="myModal.close()">close</button>
+	        </modal-footer>
+	    </modal>
+		</div>
   </li>
 </ul>
 
