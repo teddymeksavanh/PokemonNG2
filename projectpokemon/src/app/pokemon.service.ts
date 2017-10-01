@@ -8,7 +8,8 @@ import { Pokemon } from './pokemon';
 
 @Injectable()
 export class PokemonService {
-  private pokeApiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=151';
+  private pokemonLimit = 6;
+  private pokeApiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=' + this.pokemonLimit;
 
   constructor(
     private http: Http,
