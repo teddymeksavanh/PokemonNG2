@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Headers, Http, Response } from '@angular/http';
+import { LocalStorageService } from 'angular-2-local-storage';
 
 import 'rxjs/add/operator/toPromise';
 
@@ -7,33 +8,43 @@ import { Pokemon } from './pokemon';
 
 @Injectable()
 export class PokemonService {
-  private pokeApiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=4';
+  private pokeApiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=151';
 
   constructor(
-    private http: Http
+    private http: Http,
+    private localStorageService: LocalStorageService
   ) { }
 
   getPokemons(): Promise<Array<Pokemon>> {
-    return new Promise((resolve, reject) => {
-      this.http
-      .get(this.pokeApiUrl)
-      .toPromise()
-      .then((pokemonsResponse) => {
-        const pokemons = Object.assign([], pokemonsResponse.json().results)
-        const pokemonPromises = pokemons.map( pokeObj =>
-          this.getPokemon(pokeObj.url)
-        )
-                                             
-        Promise.all(pokemonPromises)
-          .then((values) => {
-              resolve(values)
-          })
-          .catch(reject)
-       
+
+    //Check if pokemons data already exist in localStorage
+    if(this.localStorageService.isSupported && this.localStorageService.get('pokemons')) {
+      return new Promise((resolve) => {
+        resolve(this.localStorageService.get('pokemons'))
       })
-      .catch(this.handleError);
-    })
-    
+    } else {
+      //Get data from pokéApi
+      return new Promise((resolve, reject) => {
+        this.http
+          .get(this.pokeApiUrl)
+          .toPromise()
+          .then((pokemonsResponse) => {
+            const pokemons = Object.assign([], pokemonsResponse.json().results)
+            const pokemonPromises = pokemons.map( pokeObj =>
+              this.getPokemon(pokeObj.url)
+            )
+                                                 
+            Promise.all(pokemonPromises)
+              .then((values) => {
+                  this.localStorageService.set('pokemons', values);
+                  resolve(values)
+              })
+              .catch(reject)
+         
+        })
+        .catch(this.handleError);
+      })
+    }   
   }
 
   getPokemon(pokemonUrl: string): Promise<Pokemon> {
