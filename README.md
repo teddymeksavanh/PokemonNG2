@@ -8,12 +8,13 @@ It's for a company test, but first of all, It will help me get use to Angular2 a
 
 ## Install
 
-Install Meteor from https://www.meteor.com/install . Meteor is a JS Frameworks.
-
 After pulling this project, launch from console :  
 
 ```
-Meteor run
+cd projectpokemon
+npm install
+ng serve
+
 ```
 
 ## External Api
