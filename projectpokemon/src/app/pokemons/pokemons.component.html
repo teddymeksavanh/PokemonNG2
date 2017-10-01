@@ -1,0 +1,13 @@
+<ul class="pokemons">
+  <li *ngFor="let pokemon of pokemons">
+
+    <button (click)="myModal.open()">Details</button>
+    <span class="pokemon-element">
+        {{pokemon.id}}
+        {{pokemon.name}}
+    </span>
+    <button (click)="goToDetails(pokemon)">View Details</button>
+  </li>
+</ul>
+
+<div class="error" *ngIf="error">{{error}}</div>
