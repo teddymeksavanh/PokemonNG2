@@ -3,8 +3,6 @@
 PokemonNG2 is a project using Angular2.
 
 ![Overview](https://github.com/teddymeksavanh/PokemonNG2/blob/feature/filterPokemonByType/projectpokemon/src/assets/site1.png)  
-![Search by type](https://github.com/teddymeksavanh/PokemonNG2/blob/feature/filterPokemonByType/projectpokemon/src/assets/site2.png)  
-![Details for Pokemon](https://github.com/teddymeksavanh/PokemonNG2/blob/feature/filterPokemonByType/projectpokemon/src/assets/site3.png)  
 
 ## Motivation
 
