@@ -8,12 +8,13 @@ import { LocalStorageModule } from 'angular-2-local-storage';
 import { AppComponent } from './app.component';
 import { PokemonService } from './pokemon.service';
 import { PokemonsComponent } from './pokemons/pokemons.component';
-
+import { CamelCasePipe } from './camel-case.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
-    PokemonsComponent
+    PokemonsComponent,
+    CamelCasePipe
   ],
   imports: [
     BrowserModule,
