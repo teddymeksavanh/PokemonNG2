@@ -8,7 +8,8 @@ import { Pokemon } from './pokemon';
 
 @Injectable()
 export class PokemonService {
-  private pokeApiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=151';
+  private pokemonLimit = 9;
+  private pokeApiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=' + this.pokemonLimit;
 
   constructor(
     private http: Http,
@@ -16,15 +17,14 @@ export class PokemonService {
   ) { }
 
   getPokemons(): Promise<Array<Pokemon>> {
+   
+    return new Promise((resolve, reject) => {
 
-    //Check if pokemons data already exist in localStorage
-    if(this.localStorageService.isSupported && this.localStorageService.get('pokemons')) {
-      return new Promise((resolve) => {
+      //Check if pokemons data already exist in localStorage
+      if(this.localStorageService.isSupported && this.localStorageService.get('pokemons')) {
         resolve(this.localStorageService.get('pokemons'))
-      })
-    } else {
-      //Get data from pokéApi
-      return new Promise((resolve, reject) => {
+      } else {
+        //Get data from pokéApi
         this.http
           .get(this.pokeApiUrl)
           .toPromise()
@@ -36,15 +36,15 @@ export class PokemonService {
                                                  
             Promise.all(pokemonPromises)
               .then((values) => {
-                  this.localStorageService.set('pokemons', values);
+                  this.localStorageService.set('pokemons', values)
                   resolve(values)
               })
               .catch(reject)
          
         })
         .catch(this.handleError);
-      })
-    }   
+      }   
+    })
   }
 
   getPokemon(pokemonUrl: string): Promise<Pokemon> {
