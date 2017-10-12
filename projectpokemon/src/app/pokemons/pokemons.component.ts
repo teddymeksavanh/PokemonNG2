@@ -22,7 +22,7 @@ export class PokemonsComponent implements OnInit {
 			.getPokemons()
 			.then(pokemons => this.pokemons = pokemons)
 			.catch(error => this.error = error);
-	} 
+	}
 
 	searchByType(value: string): void {
 		let searchedPokemons = []
@@ -37,6 +37,20 @@ export class PokemonsComponent implements OnInit {
 		})
 		this.searchedPokemons = searchedPokemons
 	}
+
+  searchByAbility(value: string): void {
+    let searchedPokemons = []
+      this.pokemons.map((pokemon) => {
+        pokemon.abilities.map(abilitiesWrapper => {
+          if( abilitiesWrapper.ability.name === value ) {
+            if(searchedPokemons.indexOf(pokemon) === -1) {
+              searchedPokemons.push(pokemon)
+            }
+          }
+        })
+      })
+      this.searchedPokemons = searchedPokemons
+  }
 
   ngOnInit() {
   	this.getPokemons();

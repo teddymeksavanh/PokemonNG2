@@ -1,7 +1,11 @@
 <!-- Search Input -->
-<div class="col-md-12 text-center search-wrapper">
-	<input class="col-md-6 col-md-offset-3" #searchBox id="search-box" (keyup)="searchByType(searchBox.value)" placeholder="Search by type (fire, poison...)" />
+<div class="row">
+	<div class="col-md-12 text-center search-wrapper">
+		<input class="col-md-6" #searchBox id="search-box" (keyup)="searchByType(searchBox.value)" placeholder="Search by type (fire, poison...)" />
+		<input class="col-md-6" #searchBoxx id="search-box2" (keyup)="searchByAbility(searchBoxx.value)" placeholder="Search by ability" />
+	</div>
 </div>
+
 
 <!-- Default Pokemons -->
 <div class="pokemons" *ngIf="searchedPokemons.length === 0">
@@ -51,7 +55,7 @@
 	          	</span>
 	        	</div>
 	        </div>
-     
+
         </modal-content>
         <modal-footer>
           <button class="btn btn-success" (click)="myModal.close()">Close</button>
@@ -109,7 +113,7 @@
 	          	</span>
 	        	</div>
 	        </div>
-     
+
         </modal-content>
         <modal-footer>
           <button class="btn btn-success" (click)="myModal.close()">Close</button>
