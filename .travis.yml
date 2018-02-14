@@ -9,7 +9,11 @@ cache:
 before_install:
 - npm install -g npm@~5.3.0
 install:
+- cd projectpokemon
 - npm install
+script:
+- cd projectpokemon
+- npm start
 deploy:
   provider: heroku
   api_key:
