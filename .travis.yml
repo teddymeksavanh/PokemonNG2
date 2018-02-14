@@ -1,0 +1,19 @@
+dist: trusty
+sudo: false
+addons:
+  chrome: stable
+language: node_js
+cache:
+  directories:
+  - "./node_modules"
+before_install:
+- npm install -g npm@~5.3.0
+install:
+- npm install
+deploy:
+  provider: heroku
+  api_key:
+    secure: ILCKcrZ+ZKDmDleWJhWkIomnieXZwlIlKoPk2Ck0TszbELlKfYOSJU+Kwuw8ZiEVevbZPlLpGHOr0l0kQR5LBPLFbpiHwqxvpR8oFJa0lJUehaA9EgCsLr40tfb5utdgIpblqMkVvzQWpu9qdoYRVx62sLOusZvfz0tQ3f+3xvcGyi4mhYZWgMHY0MA4Hl/vdSC58ym8IVeVqo29WsbPZxRSufJEhPa4YuaSQA6Zw+USoSVCsi3LDplGb52FUrorhniUep7p7TKNgRXZTdTfCqBNjNZAy6UL3QG/fxHL48gb9U4A3DAgAL9Fgp4agG1riOBgF7gh1MTRB+PBF42918MTTCZLcGGWvCD7joen2yR/dA3+8WBUQ2sCvwqEOZJyE98v0NPm89tcMw8ZfeSeyKMVaV5Ov/tvw868dVC7aq+aIhfLJqTPtGzW5xT3AEg4nRevLVMcLIFzk9OzPQKorjoU2HbntuFGwDR9bXjiSUiR0WkzlpJuhFDkaw1QKH3TkUFiMMAExnOYF4eD9lGeLqHqsTRv+Z4rWgdiPcl0Q/NIJLThUty3oYAU6gER16G2EJ5ugld+fIXx/HNru6CFgwE21nM73eANiXDJIm65ZnlsUCptwKF0SJbpwFre20O3BzWUhMreQxNt/057yKzPwacI6obK7LjSkn038EkkT78=
+  app: PokemonNG2
+  on:
+    repo: teddymeksavanh/PokemonNG2
